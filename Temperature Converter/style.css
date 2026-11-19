@@ -1,0 +1,442 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #101010;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f5eee4;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.top {
+    color: #d4b477;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.icon {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: 38px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+h1 span {
+    color: #d4b477;
+}
+
+.subtitle {
+    color: #aaa39a;
+    margin-bottom: 35px;
+    font-size: 14px;
+}
+
+.converter {
+    background: #1c1c1c;
+    padding: 35px;
+    border: 1px solid #55462e;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 20px 50px #00000080;
+}
+
+label {
+    display: block;
+    color: #d4b477;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    background: #111111;
+    color: #f5eee4;
+    border: 1px solid #51432e;
+    border-radius: 9px;
+    outline: none;
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    border-color: #d4b477;
+}
+
+.units {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: #d4b477;
+    color: #17130d;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #f0d5a0;
+    transform: translateY(-3px);
+}
+
+#error {
+    color: #ff8989;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.result {
+    background: #121212;
+    border: 1px solid #55462e;
+    border-left: 4px solid #d4b477;
+    border-radius: 10px;
+    padding: 22px;
+    margin-top: 25px;
+}
+
+.result p {
+    color: #d4b477;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.result h2 {
+    color: #f0d5a0;
+    font-size: 30px;
+    margin-top: 13px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    margin-top: 28px;
+    color: #8d857a;
+    font-size: 12px;
+}
+
+@media (max-width: 450px) {
+    h1 {
+        font-size: 29px;
+    }
+
+    .converter {
+        padding: 22px;
+    }
+
+    .units {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Unique Luxury Background Pattern */
+
+body {
+    background-color: #101010;
+    background-image:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(212, 180, 119, 0.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(212, 180, 119, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            transparent 48%,
+            rgba(212, 180, 119, 0.045) 49%,
+            transparent 50%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 48%,
+            rgba(212, 180, 119, 0.035) 49%,
+            transparent 50%
+        );
+
+    background-size:
+        auto,
+        auto,
+        45px 45px,
+        45px 45px;
+
+    background-attachment: fixed;
+}
+
+/* Decorative golden glow */
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Premium Input & Select Boxes */
+
+input, select {
+    background: linear-gradient(145deg, #25221d, #171614);
+    border: 1px solid rgba(212, 180, 119, 0.35);
+    border-radius: 12px;
+    padding: 16px;
+    color: #f5eee4;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 8px #00000055;
+}
+
+input:hover, select:hover {
+    border-color: #d4b477;
+    box-shadow: 0 0 12px #d4b47722;
+}
+
+input:focus, select:focus {
+    border-color: #e5c58b;
+    box-shadow: 0 0 0 3px #d4b47725;
+    transform: translateY(-2px);
+}
+
+/* Converter Main Box */
+
+.converter {
+    background: linear-gradient(145deg, #24211d, #171717);
+    border: 1px solid #80663e;
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow:
+        0 20px 50px #00000080,
+        inset 0 1px 1px #ffffff12;
+}
+
+/* Result Box Design */
+
+.result {
+    background: linear-gradient(135deg, #30281d, #171614);
+    border: 1px solid #b18b50;
+    border-left: 4px solid #e0bd7b;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 25px;
+    transition: 0.3s ease;
+    box-shadow: 0 8px 25px #00000055;
+}
+
+.result:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px #d4b47720;
+}
+
+/* Convert Button */
+
+button {
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 18px #d4b47725;
+}
+
+button:hover {
+    box-shadow: 0 8px 25px #d4b47755;
+}
+
+/* Smooth Card Animation */
+
+.converter {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.converter:hover {
+    box-shadow:
+        0 25px 60px #00000090,
+        0 0 25px #d4b47712;
+}
+
+
+/* Updated Temperature Converter Design */
+
+.converter {
+    max-width: 650px;
+    margin: auto;
+    padding: 32px;
+    background: linear-gradient(145deg, #20252e, #151a22);
+    border: 1px solid #536071;
+    border-radius: 22px;
+    box-shadow: 0 20px 55px #00000070;
+}
+
+.input-section {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ffffff20;
+}
+
+.input-section input,
+.input-section select {
+    width: 100%;
+    background: #111820;
+    border: 1px solid #586779;
+    border-radius: 10px;
+    color: #f2f5f8;
+    padding: 15px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.input-section input:focus,
+.input-section select:focus {
+    border-color: #54d6d0;
+    box-shadow: 0 0 12px #54d6d033;
+}
+
+.input-section label {
+    color: #8ce4dc;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+}
+
+.input-section button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #42c8c2, #a3d97a);
+    color: #111820;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-section button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px #42c8c255;
+}
+
+#error {
+    color: #ff8989;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.results-section {
+    padding-top: 25px;
+}
+
+.results-section h2 {
+    color: #f2f5f8;
+    font-size: 23px;
+}
+
+.result-subtitle {
+    color: #aab5c2;
+    font-size: 13px;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.result-card {
+    padding: 20px 14px;
+    background: linear-gradient(145deg, #293642, #1a222b);
+    border: 1px solid #526778;
+    border-radius: 14px;
+    transition: 0.3s;
+    overflow-wrap: anywhere;
+}
+
+.result-card:last-child {
+    grid-column: 1 / -1;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    border-color: #54d6d0;
+    box-shadow: 0 10px 25px #42c8c222;
+}
+
+.result-card span {
+    color: #83dcd5;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.result-card h3 {
+    color: #f1d28d;
+    font-size: 24px;
+    margin: 15px 0 8px;
+}
+
+.result-card p {
+    color: #aab5c2;
+    font-size: 12px;
+}
+
+@media(max-width: 450px) {
+    .converter {
+        padding: 20px;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card:last-child {
+        grid-column: auto;
+    }
+}
+/* Temperature Logo Design */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    background: linear-gradient(145deg, #263c48, #111820);
+    border: 1px solid #54d6d0;
+    border-radius: 25px;
+    box-shadow: 0 0 25px #54d6d055;
+    transform: rotate(-6deg);
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(0deg) scale(1.08);
+}

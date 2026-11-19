@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+    <div class="logo">🌡️</div>
+    <h1>Temperature <span>Converter</span></h1>
+    <p>Smart • Simple • Accurate</p>
+</header>
+    
+<div class="converter">
+
+    <div class="input-section">
+        <label for="temperature">ENTER TEMPERATURE</label>
+        <input
+            type="number"
+            id="temperature"
+            placeholder="Enter temperature value"
+            step="any"
+        >
+
+        <label for="fromUnit">SELECT INPUT UNIT</label>
+        <select id="fromUnit">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+            <option value="K">Kelvin (K)</option>
+        </select>
+
+        <button onclick="convertTemperature()">
+            Convert Temperature →
+        </button>
+
+        <p id="error"></p>
+    </div>
+
+    <div class="results-section">
+        <h2>Conversion Results</h2>
+        <p class="result-subtitle">Your temperature in three units</p>
+
+        <div class="result-grid">
+
+            <div class="result-card">
+                <span>01 / CELSIUS</span>
+                <h3 id="celsiusResult">--</h3>
+                <p>Celsius (°C)</p>
+            </div>
+
+            <div class="result-card">
+                <span>02 / FAHRENHEIT</span>
+                <h3 id="fahrenheitResult">--</h3>
+                <p>Fahrenheit (°F)</p>
+            </div>
+
+            <div class="result-card">
+                <span>03 / KELVIN</span>
+                <h3 id="kelvinResult">--</h3>
+                <p>Kelvin (K)</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script src="./script.js"></script>
+</body>
+</html>

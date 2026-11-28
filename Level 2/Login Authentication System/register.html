@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Join the movement</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="register-body">
+  <main class="register-screen">
+    <header class="editorial-nav">
+      <a class="wordmark" href="register.html">TASK<span>FLOW</span><sup>®</sup></a>
+      <span class="nav-edition">PRODUCTIVITY, REIMAGINED / 2026</span>
+      <a class="nav-action" href="login.html">I HAVE AN ACCOUNT <b>↗</b></a>
+    </header>
+
+    <section class="register-composition">
+      <div class="poster-side">
+        <div class="poster-number">TF—001 <span>NEW CHAPTER</span></div>
+        <h1>MAKE<br>ROOM<br>FOR <span>BIG</span><br><i>THINGS.</i></h1>
+        <div class="poster-art">
+          <div class="poster-disc"></div>
+          <div class="poster-disc disc-two"></div>
+          <div class="poster-block block-one"></div>
+          <div class="poster-block block-two"></div>
+          <div class="poster-orbit"></div>
+          <div class="poster-cross">✳</div>
+          <div class="poster-art-label">IDEAS IN MOTION<br>EST. 2026</div>
+        </div>
+        <div class="poster-bottom">
+          <span>01 — PLAN</span><span>02 — BUILD</span><span>03 — BECOME</span>
+        </div>
+      </div>
+
+      <div class="register-form-side">
+        <div class="form-index"><span>01 / ACCOUNT CREATION</span><span class="index-dot"></span></div>
+        <div class="register-heading">
+          <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+          <h2>Let's make<br>it <em>happen.</em></h2>
+          <p>Set up your space. Bring your ideas. We'll help you keep everything moving.</p>
+        </div>
+
+        <form id="registerForm" class="editorial-form">
+          <div class="field-pair">
+            <div class="field">
+              <label for="regUsername">YOUR USERNAME</label>
+              <input id="regUsername" name="username" type="text" placeholder="e.g. alex01" minlength="3" required autocomplete="username">
+            </div>
+            <div class="field">
+              <label for="regEmail">EMAIL ADDRESS</label>
+              <input id="regEmail" name="email" type="email" placeholder="you@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="field">
+            <label for="regPassword">CREATE PASSWORD</label>
+            <input id="regPassword" name="password" type="password" placeholder="8+ characters, at least 1 number" minlength="8" required autocomplete="new-password">
+          </div>
+          <div class="field">
+            <label for="regConfirm">CONFIRM PASSWORD</label>
+            <input id="regConfirm" name="confirmPassword" type="password" placeholder="Type it one more time" required autocomplete="new-password">
+          </div>
+          <p id="registerMessage" class="form-message" aria-live="polite"></p>
+          <button class="lime-submit" type="submit">CREATE MY ACCOUNT <span>↗</span></button>
+        </form>
+
+        <div class="register-note"><span>NO NOISE. JUST PROGRESS.</span><span>© TASKFLOW STUDIO</span></div>
+      </div>
+    </section>
+    <footer class="ticker"><div>FOCUS IS A SUPERPOWER <b>✳</b> MAKE EVERY DAY COUNT <b>✳</b> THINK BIGGER, DO BETTER <b>✳</b> FOCUS IS A SUPERPOWER <b>✳</b></div></footer>
+  </main>
+</body>
+</html>

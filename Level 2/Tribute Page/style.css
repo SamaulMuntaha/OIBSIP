@@ -1,0 +1,850 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #171B24;
+    color: #F1EDE5;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            rgba(23, 27, 36, 0.55),
+            rgba(23, 27, 36, 0.75)
+        ),
+        url("kalam.jpeg");
+
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.eyebrow,
+.section-label {
+    color: #D6B77A;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 7vw, 72px);
+    margin: 22px 0;
+    color: #D6B77A;
+}
+
+.tagline {
+    font-size: 17px;
+    color: #F1EDE5;
+    margin-bottom: 35px;
+}
+
+.hero-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #171B24;
+    background: #D6B77A;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.hero-button:hover {
+    background: #E8D2A5;
+    transform: translateY(-4px);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    max-width: 1150px;
+    margin: 90px auto;
+    padding: 0 25px;
+
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.portrait {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+
+    background: #263445;
+    border: 1px solid rgba(214, 183, 122, 0.45);
+    border-radius: 24px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.portrait:hover {
+    transform: translateY(-6px);
+}
+
+.portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.intro-text h2,
+.journey-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin: 15px 0 22px;
+    color: #D6B77A;
+}
+
+.intro-text p {
+    color: #E8E0D2;
+    line-height: 1.9;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   LIFE STORY SECTION
+========================= */
+
+.life-story {
+    padding: 90px 0;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(38, 52, 69, 0.55),
+            transparent 75%
+        ),
+        #171B24;
+    overflow: hidden;
+}
+
+.life-heading {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+
+.life-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #D6B77A;
+    margin: 15px 0;
+}
+
+.life-heading p {
+    color: #C7BDAE;
+    font-size: 14px;
+}
+
+/* =========================
+   3D HORIZONTAL CAROUSEL
+========================= */
+
+.story-container {
+    --card-width: 310px;
+
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 28px;
+
+    padding: 65px max(
+        20px,
+        calc((100% - var(--card-width)) / 2)
+    );
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: calc(
+        (100% - var(--card-width)) / 2
+    );
+
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.story-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* INDIVIDUAL CARD */
+
+.story-card {
+    flex: 0 0 var(--card-width);
+    min-width: 0;
+    min-height: 300px;
+
+    padding: 30px 27px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    scroll-snap-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(65, 100, 150, 0.32),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            #29394D,
+            #101B2B
+        );
+
+    border: 1px solid rgba(214, 183, 122, 0.25);
+    border-radius: 25px;
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+
+    opacity: 0.48;
+    filter: blur(1.5px);
+    transform: scale(0.86);
+
+    transition:
+        transform 0.55s ease,
+        opacity 0.55s ease,
+        filter 0.55s ease,
+        border-color 0.55s ease,
+        box-shadow 0.55s ease;
+}
+
+/* CARD LIGHT EFFECT */
+
+.story-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.10),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: left 0.8s ease;
+}
+
+.story-card.active::before {
+    left: 150%;
+}
+
+/* CENTER ACTIVE CARD */
+
+.story-card.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.08);
+
+    border-color: #D6B77A;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(77, 121, 183, 0.48),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            #304A6B,
+            #101B2B
+        );
+
+    box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(214, 183, 122, 0.14);
+
+    z-index: 2;
+}
+
+/* NUMBER BADGE */
+
+.story-card .story-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 42px;
+
+    margin-bottom: 22px;
+
+    color: #171B24;
+    background: linear-gradient(
+        135deg,
+        #E8D2A5,
+        #D6B77A
+    );
+
+    border-radius: 13px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    box-shadow: 0 5px 18px rgba(214, 183, 122, 0.18);
+}
+
+.story-card h3 {
+    color: #F1EDE5;
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.story-card p {
+    color: #D5DCE7;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* =========================
+   TIMELINE PHOTO
+========================= */
+
+.timeline-photo {
+    padding: 65px 20px 55px;
+    text-align: center;
+    background: #171B24;
+}
+
+.timeline-photo img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+    margin: auto;
+    padding: 8px;
+
+    background: #263445;
+    border: 1px solid #D6B77A;
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transition: 0.4s ease;
+}
+
+.timeline-photo img:hover {
+    transform: scale(1.03);
+}
+
+.timeline-photo::after {
+    content: "A Visionary • A Scientist • A Teacher";
+    display: block;
+    margin-top: 18px;
+
+    color: #D6B77A;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   GOLDEN JOURNEY TIMELINE
+========================= */
+
+.journey-section {
+    position: relative;
+    padding: 95px 24px 110px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(50, 75, 105, 0.48),
+            transparent 68%
+        ),
+        linear-gradient(145deg, #1B2431, #171B24 72%);
+    border-top: 1px solid rgba(214, 183, 122, 0.28);
+    border-bottom: 1px solid rgba(214, 183, 122, 0.28);
+}
+
+.journey-heading {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 0 auto 45px;
+    padding: 0 15px;
+}
+
+.journey-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 43px);
+    color: #D6B77A;
+    margin: 15px 0 12px;
+}
+
+.journey-heading p {
+    color: #C7BDAE;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.journey-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1120px;
+    height: 1050px;
+    margin: 0 auto;
+}
+
+.journey-path {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.journey-path-shadow,
+.journey-path-line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.journey-path-shadow {
+    stroke: rgba(214, 183, 122, 0.12);
+    stroke-width: 22;
+    filter: blur(7px);
+}
+
+.journey-path-line {
+    stroke: #D6B77A;
+    stroke-width: 5;
+    stroke-dasharray: 12 13;
+    filter: drop-shadow(0 0 7px rgba(214, 183, 122, 0.38));
+}
+
+.journey-point {
+    position: absolute;
+    z-index: 1;
+    width: 39%;
+    min-height: 130px;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 17px;
+}
+
+.point-one   { left: 2%;  top: 1%; }
+.point-two   { right: 1%; top: 16%; }
+.point-three { left: 1%;  top: 35%; }
+.point-four  { right: 0%; top: 54%; }
+.point-five  { left: 2%;  top: 73%; }
+.point-six   { right: 8%; top: 88%; }
+
+.journey-year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+
+    color: #171B24;
+    background: linear-gradient(145deg, #F0D9A8, #C69D55);
+
+    border: 5px solid #293747;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 2px rgba(214, 183, 122, 0.75),
+        0 8px 25px rgba(0, 0, 0, 0.32),
+        0 0 24px rgba(214, 183, 122, 0.18);
+
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.journey-info {
+    padding: 17px 20px 18px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(48, 68, 91, 0.96),
+        rgba(25, 35, 49, 0.97)
+    );
+
+    border: 1px solid rgba(214, 183, 122, 0.38);
+    border-radius: 17px;
+
+    box-shadow: 0 13px 30px rgba(0, 0, 0, 0.24);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.journey-point:hover .journey-info {
+    transform: translateY(-5px);
+    border-color: #D6B77A;
+
+    box-shadow:
+        0 17px 35px rgba(0, 0, 0, 0.32),
+        0 0 22px rgba(214, 183, 122, 0.10);
+}
+
+.journey-info h3 {
+    margin-bottom: 8px;
+    color: #F1EDE5;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+.journey-info p {
+    color: #D5DCE7;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote-section {
+    padding: 95px 25px;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #171B24,
+        #263445
+    );
+
+    color: #F1EDE5;
+}
+
+.quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    line-height: 0.8;
+    color: #D6B77A;
+}
+
+blockquote {
+    max-width: 800px;
+    margin: 20px auto;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(23px, 4vw, 36px);
+    line-height: 1.6;
+    font-style: italic;
+
+    color: #F1EDE5;
+}
+
+.quote-author {
+    color: #D6B77A;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 15px;
+    background: #10141C;
+    color: #F1EDE5;
+    text-align: center;
+    font-size: 14px;
+
+    border-top: 1px solid rgba(214, 183, 122, 0.3);
+}
+
+.footer-small {
+    margin-top: 8px;
+    color: #C7BDAE;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   SCROLL REVEAL ANIMATION
+========================= */
+
+.js-enabled .reveal-left,
+.js-enabled .reveal-right,
+.js-enabled .reveal-up {
+    opacity: 0;
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.js-enabled .reveal-left {
+    transform: translateX(-70px);
+}
+
+.js-enabled .reveal-right {
+    transform: translateX(70px);
+}
+
+.js-enabled .reveal-up {
+    transform: translateY(50px);
+}
+
+.js-enabled .reveal-left.show,
+.js-enabled .reveal-right.show,
+.js-enabled .reveal-up.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+    .intro {
+        gap: 35px;
+    }
+
+    .journey-stage {
+        height: 1010px;
+    }
+
+    .journey-point {
+        width: 43%;
+        grid-template-columns: 66px minmax(0, 1fr);
+        column-gap: 12px;
+    }
+
+    .journey-year {
+        width: 66px;
+        height: 66px;
+        font-size: 18px;
+    }
+
+    .journey-info {
+        padding: 15px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 470px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        margin: 55px auto;
+    }
+
+    .portrait {
+        max-width: 380px;
+    }
+
+    .intro-text h2,
+    .journey-heading h2 {
+        font-size: 31px;
+    }
+
+    .journey-section {
+        padding: 70px 18px 80px;
+    }
+
+    .journey-stage {
+        height: 1030px;
+    }
+
+    .story-container {
+        --card-width: 285px;
+    }
+}
+
+/* MOBILE TIMELINE */
+
+@media (max-width: 650px) {
+
+    .journey-section {
+        padding: 65px 18px 75px;
+    }
+
+    .journey-heading {
+        margin-bottom: 35px;
+    }
+
+    .journey-stage {
+        height: auto;
+        max-width: 520px;
+        padding: 5px 0 5px 12px;
+    }
+
+    .journey-path {
+        display: none;
+    }
+
+    .journey-point,
+    .point-one,
+    .point-two,
+    .point-three,
+    .point-four,
+    .point-five,
+    .point-six {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        min-height: 0;
+
+        display: grid;
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 13px;
+        align-items: start;
+
+        margin-bottom: 24px;
+    }
+
+    .journey-point:last-child {
+        margin-bottom: 0;
+    }
+
+    .journey-year {
+        position: relative;
+        z-index: 2;
+
+        width: 58px;
+        height: 58px;
+        border-width: 4px;
+        font-size: 16px;
+    }
+
+    .journey-point:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+
+        left: 28px;
+        top: 57px;
+        height: calc(100% + 25px);
+
+        border-left: 3px dashed rgba(214, 183, 122, 0.75);
+    }
+
+    .journey-info {
+        padding: 14px 15px;
+    }
+
+    .journey-info h3 {
+        font-size: 16px;
+    }
+
+    .journey-info p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .story-container {
+        --card-width: 260px;
+        gap: 20px;
+    }
+
+    .story-card {
+        min-height: 285px;
+    }
+
+    .life-heading h2 {
+        font-size: 34px;
+    }
+
+    .timeline-photo img {
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 39px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .js-enabled .reveal-left,
+    .js-enabled .reveal-right,
+    .js-enabled .reveal-up {
+        opacity: 1;
+        transform: none;
+    }
+}

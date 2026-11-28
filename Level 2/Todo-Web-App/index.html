@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Productivity Studio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">✦</div>
+        <strong>Task<span>Flow.</span></strong>
+      </div>
+
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav">
+        <a class="active" href="#home"><span class="nav-icon">⌂</span><span>Overview</span></a>
+        <a href="#tasks"><span class="nav-icon">▤</span><span>My Tasks</span></a>
+        <a href="#board"><span class="nav-icon">▦</span><span>Kanban Board</span></a>
+        <a href="#calendar"><span class="nav-icon">▣</span><span>Calendar</span></a>
+        <a href="#analytics"><span class="nav-icon">◫</span><span>Analytics</span></a>
+      </nav>
+
+      <div class="nav-label">PERSONAL SPACE</div>
+      <nav class="nav">
+        <a href="#notes"><span class="nav-icon">✎</span><span>My Notes</span></a>
+        <a href="#focus"><span class="nav-icon">◷</span><span>Focus Room</span></a>
+        <a href="#settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="side-card">
+          <h4>Your next big thing ✨</h4>
+          <p>Make progress every day. Small actions create big results.</p>
+          <button onclick="showToast('Keep going! You are doing amazing.')">Stay inspired ↗</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main" id="home">
+      <header class="topbar">
+        <div class="breadcrumb">Workspace / <b id="crumb">Overview</b></div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Notifications" onclick="showReminders()">♧</button>
+          <button class="icon-btn" title="Theme" onclick="toggleTheme()">☼</button>
+          <div class="avatar" id="avatar">S</div>
+        </div>
+      </header>
+
+      <section class="hero reveal">
+        <div class="hero-content">
+          <div class="eyebrow">✦ YOUR CREATIVE WORKSPACE</div>
+          <h1>Make today<br><span>extraordinary.</span></h1>
+          <p>Plan smarter, stay focused and turn your ideas into meaningful progress. Your next great achievement starts here.</p>
+          <div class="hero-buttons">
+            <button class="primary" onclick="openTaskModal()">＋ Create a task</button>
+            <button class="secondary" onclick="goTo('board')">Explore workspace ↗</button>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="orbit"></div>
+          <div class="orbit2"></div>
+          <div class="core">✦</div>
+        </div>
+      </section>
+
+      <div class="section-head reveal">
+        <div><h2>Your overview</h2><p>Here's what's happening in your workspace.</p></div>
+        <span class="tag" id="today"></span>
+      </div>
+
+      <section class="stats">
+        <div class="stat reveal delay1">
+          <div class="stat-top"><span class="stat-label">Total Tasks</span><span class="stat-icon">▤</span></div>
+          <h3 id="total">0</h3><small>All planned activities</small>
+          <div class="bar"><span id="totalBar"></span></div>
+        </div>
+        <div class="stat reveal delay2">
+          <div class="stat-top"><span class="stat-label">Completed</span><span class="stat-icon">✓</span></div>
+          <h3 id="completed">0</h3><small>Great work, keep going</small>
+          <div class="bar"><span id="doneBar"></span></div>
+        </div>
+        <div class="stat reveal delay3">
+          <div class="stat-top"><span class="stat-label">In Progress</span><span class="stat-icon">◷</span></div>
+          <h3 id="active">0</h3><small>Things waiting for you</small>
+          <div class="bar"><span id="activeBar"></span></div>
+        </div>
+        <div class="stat reveal delay1">
+          <div class="stat-top"><span class="stat-label">Overdue</span><span class="stat-icon">!</span></div>
+          <h3 id="overdue">0</h3><small>Check your deadlines</small>
+          <div class="bar"><span id="lateBar"></span></div>
+        </div>
+      </section>
+
+      <section class="streak-card reveal">
+        <div class="streak-left">
+          <div class="streak-icon">🔥</div>
+          <div><h3>Your productivity streak</h3><p id="streakMessage">Build a little progress every day.</p></div>
+        </div>
+        <div class="streak-number"><span id="streakCount">1</span><small> day streak</small></div>
+      </section>
+
+      <section class="two-grid" id="analytics">
+        <div class="panel reveal">
+          <div class="panel-title"><h3>Weekly productivity</h3><small>Task completion</small></div>
+          <div class="chart" id="weeklyChart"></div>
+        </div>
+        <div class="panel reveal delay1">
+          <div class="panel-title"><h3>Completion rate</h3><small>All tasks</small></div>
+          <div class="ring-wrap">
+            <div class="ring" id="ring">
+              <div class="ring-inner"><strong id="percent">0%</strong><small>COMPLETED</small></div>
+            </div>
+            <div class="legend">
+              <div><i></i> Completed <b id="legendDone">0</b></div>
+              <div><i class="legend-other"></i> Remaining <b id="legendLeft">0</b></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tasks">
+        <div class="section-head reveal">
+          <div><h2>My tasks</h2><p>Manage your everyday priorities.</p></div>
+          <button class="primary" onclick="openTaskModal()">＋ New task</button>
+        </div>
+        <div class="panel reveal">
+          <div class="task-tools">
+            <input class="search" id="search" placeholder="⌕ Search tasks...">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="active">Active</button>
+            <button class="filter" data-filter="done">Completed</button>
+            <button class="filter" data-filter="overdue">Overdue</button>
+          </div>
+          <div class="task-list" id="taskList"></div>
+        </div>
+      </section>
+
+      <section id="board">
+        <div class="section-head reveal">
+          <div><h2>Kanban board</h2><p>Drag your tasks between workflow stages.</p></div>
+          <span class="tag">DRAG & DROP</span>
+        </div>
+        <div class="board reveal">
+          <div class="board-col" data-status="todo">
+            <div class="board-heading">To Do <span id="count-todo">0</span></div>
+            <div class="dropzone" id="zone-todo"></div>
+          </div>
+          <div class="board-col" data-status="progress">
+            <div class="board-heading">In Progress <span id="count-progress">0</span></div>
+            <div class="dropzone" id="zone-progress"></div>
+          </div>
+          <div class="board-col" data-status="done">
+            <div class="board-heading">Completed <span id="count-done">0</span></div>
+            <div class="dropzone" id="zone-done"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="calendar">
+        <div class="section-head reveal"><div><h2>Smart calendar</h2><p>See your deadlines and upcoming plans.</p></div></div>
+        <div class="panel reveal">
+          <div class="calendar-head">
+            <button id="prevMonth">←</button>
+            <h3 id="monthTitle"></h3>
+            <button id="nextMonth">→</button>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="section-head reveal">
+          <div><h2>Personal notes</h2><p>Capture your thoughts and creative ideas.</p></div>
+          <button class="primary" onclick="openNoteModal()">＋ New note</button>
+        </div>
+        <div class="notes-grid reveal" id="notesGrid"></div>
+      </section>
+
+      <section class="bottom-grid" id="focus">
+        <div class="focus-card reveal">
+          <div>
+            <h3>Focus room ✦</h3><p>One thing at a time. You've got this.</p>
+            <div class="timer" id="timer">25:00</div>
+            <div class="timer-controls">
+              <button class="timer-start" id="timerBtn" onclick="toggleTimer()">Start focus</button>
+              <button class="timer-reset" onclick="resetTimer()">Reset</button>
+            </div>
+          </div>
+          <div class="focus-orb">◉</div>
+        </div>
+        <div class="reminder-card reveal delay1">
+          <h3>Smart reminders ♧</h3>
+          <p>Enable browser notifications to receive reminders for tasks with upcoming deadlines.</p>
+          <button class="primary" onclick="enableNotifications()">Enable notifications</button>
+          <p id="notificationStatus" class="notification-status">Notifications are not enabled yet.</p>
+        </div>
+      </section>
+
+      <section id="settings">
+        <div class="section-head reveal">
+          <div><h2>Workspace settings</h2><p>Customize your personal productivity space.</p></div>
+        </div>
+        <div class="settings-grid reveal">
+          <div class="setting">
+            <div class="setting-row">
+              <div><h4>Appearance</h4><p>Switch between dark and light themes.</p></div>
+              <button class="toggle" id="themeToggle" onclick="toggleTheme()"></button>
+            </div>
+          </div>
+          <div class="setting">
+            <h4>Profile name</h4><p>Customize your workspace identity.</p>
+            <div class="profile-input">
+              <input class="field" id="profileName" placeholder="Your name">
+              <button class="primary" onclick="saveProfile()">Save</button>
+            </div>
+          </div>
+          <div class="setting">
+            <h4>Export workspace</h4><p>Download your tasks and notes as a JSON backup.</p>
+            <button class="primary" onclick="exportData()">Download backup ↓</button>
+          </div>
+          <div class="setting">
+            <h4>Clear completed tasks</h4><p>Remove all completed tasks from your workspace.</p>
+            <button class="primary danger" onclick="clearCompleted()">Clear completed</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>CRAFT YOUR DAY · CREATE YOUR FUTURE · TASKFLOW ✦</footer>
+    </main>
+  </div>
+
+  <div class="command-overlay" id="commandOverlay">
+    <div class="command-box">
+      <input class="command-search" id="commandSearch" placeholder="Search actions...">
+      <div class="command-hint">QUICK ACTIONS</div>
+      <div class="command-list" id="commandList">
+        <button class="command-item" data-action="task"><span>＋</span>Create a new task<small>New task</small></button>
+        <button class="command-item" data-action="board"><span>▦</span>Open Kanban board<small>Workspace</small></button>
+        <button class="command-item" data-action="calendar"><span>▣</span>Open calendar<small>Planning</small></button>
+        <button class="command-item" data-action="focus"><span>◷</span>Open focus room<small>Productivity</small></button>
+        <button class="command-item" data-action="notes"><span>✎</span>Open notes<small>Personal</small></button>
+        <button class="command-item" data-action="theme"><span>☼</span>Switch appearance<small>Theme</small></button>
+      </div>
+      <div class="command-footer"><kbd>ESC</kbd> to close · <kbd>Ctrl</kbd> + <kbd>K</kbd> to open</div>
+    </div>
+  </div>
+
+  <button class="command-shortcut" onclick="openCommandCenter()" title="Command Center">⌘</button>
+
+  <div class="modal" id="taskModal">
+    <div class="modal-box">
+      <h3 id="taskModalTitle">Create a new task ✦</h3>
+      <label>Task name</label><input id="taskName" placeholder="What needs to be done?">
+      <label>Category</label><input id="taskCategory" placeholder="Design, Work, Personal...">
+      <label>Priority</label>
+      <select id="taskPriority"><option>Medium</option><option>High</option><option>Low</option></select>
+      <label>Deadline</label><input type="date" id="taskDate">
+      <label>Status</label>
+      <select id="taskStatus">
+        <option value="todo">To Do</option>
+        <option value="progress">In Progress</option>
+        <option value="done">Completed</option>
+      </select>
+      <div class="modal-actions">
+        <button class="cancel" onclick="closeTaskModal()">Cancel</button>
+        <button class="save" onclick="saveTask()">Save task</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="noteModal">
+    <div class="modal-box">
+      <h3>Create a note ✧</h3>
+      <label>Note title</label><input id="noteTitle" placeholder="Give your note a title">
+      <label>Your thoughts</label><textarea id="noteText" rows="5" placeholder="Write your ideas here..."></textarea>
+      <div class="modal-actions">
+        <button class="cancel" onclick="closeNoteModal()">Cancel</button>
+        <button class="save" onclick="saveNote()">Save note</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

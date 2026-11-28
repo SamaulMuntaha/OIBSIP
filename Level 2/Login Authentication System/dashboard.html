@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Command Center</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="dashboard-body">
+  <main class="command-center">
+    <header class="command-nav">
+      <a class="wordmark" href="dashboard.html">TASK<span>FLOW</span><sup>®</sup></a>
+      <nav class="command-links">
+        <a class="selected" href="#overview">OVERVIEW</a>
+        <a href="#taskboard">TASK BOARD</a>
+        <a href="#insights">INSIGHTS</a>
+      </nav>
+      <div class="command-user">
+        <span class="user-status"></span>
+        <span id="profileName">MEMBER</span>
+        <button id="logoutBtn" type="button">LOG OUT ↗</button>
+      </div>
+    </header>
+
+    <section class="command-intro" id="overview">
+      <div>
+        <span class="command-kicker">YOUR PERSONAL COMMAND CENTER / <span id="todayDate">TODAY</span></span>
+        <h1>Make things<br><em>move.</em></h1>
+      </div>
+      <div class="intro-note"><span>✳</span><p>One focused action<br>can change your day.</p></div>
+    </section>
+
+    <section class="command-grid">
+      <article class="focus-panel">
+        <div class="panel-top"><span>01 / YOUR MOMENTUM</span><span>LIVE OVERVIEW</span></div>
+        <div class="focus-graphic">
+          <div class="focus-circle circle-outer"></div>
+          <div class="focus-circle circle-middle"></div>
+          <div class="focus-circle circle-inner"></div>
+          <div class="focus-core"><strong id="progressPercent">0%</strong><span>COMPLETE</span></div>
+          <span class="graphic-label label-top">FOCUS</span>
+          <span class="graphic-label label-bottom">PROGRESS / 001</span>
+        </div>
+        <div class="focus-bottom"><span>KEEP YOUR PACE.</span><span>✳</span></div>
+      </article>
+
+      <article class="metrics-panel" id="insights">
+        <div class="panel-top"><span>02 / ACTIVITY</span><span>YOUR NUMBERS</span></div>
+        <div class="metric-row"><div><span>TOTAL TASKS</span><strong id="totalTasks">0</strong></div><b>01</b></div>
+        <div class="metric-row"><div><span>COMPLETED</span><strong id="completedTasks">0</strong></div><b>02</b></div>
+        <div class="metric-row"><div><span>IN PROGRESS</span><strong id="pendingTasks">0</strong></div><b>03</b></div>
+        <div class="metric-note">EVERY CHECKED BOX IS A SMALL WIN.</div>
+      </article>
+
+      <article class="quote-panel">
+        <span class="quote-mark">“</span>
+        <p>Don't just<br>make plans.<br><em>Make progress.</em></p>
+        <span class="quote-credit">THE TASKFLOW MINDSET — 2026</span>
+        <div class="quote-shape"></div>
+      </article>
+
+      <article class="task-panel" id="taskboard">
+        <div class="task-heading">
+          <div><span class="panel-kicker">03 / EXECUTION</span><h2>Your task<br>board<span>.</span></h2></div>
+          <span id="taskCount" class="task-count">0 TASKS</span>
+        </div>
+        <form id="taskForm" class="command-task-form">
+          <input id="taskInput" type="text" maxlength="100" placeholder="Add something you want to accomplish..." required>
+          <button type="submit">ADD <span>+</span></button>
+        </form>
+        <div class="task-columns"><span>YOUR PRIORITIES</span><span>STATUS / ACTION</span></div>
+        <div id="taskList" class="command-task-list">
+          <div class="command-empty"><span>✳</span><b>Nothing on the board yet.</b><p>Add your first task above and get moving.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="command-footer">
+      <span>TASKFLOW® / CREATIVE PRODUCTIVITY SYSTEM</span>
+      <span>MAKE ROOM FOR BIG THINGS. <b>✳</b></span>
+      <span>© 2026</span>
+    </footer>
+  </main>
+</body>
+</html>
